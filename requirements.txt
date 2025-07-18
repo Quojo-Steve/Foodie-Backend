@@ -1,0 +1,7 @@
+Flask
+Flask-Mail
+Flask-Cors
+Flask-Bcrypt
+Flask-SQLAlchemy
+python-dotenv
+email-validator
