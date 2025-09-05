@@ -7,6 +7,11 @@ from datetime import datetime, timedelta
 
 auth = Blueprint('auth', __name__)
 
+@auth.route('/', methods=['GET'])
+def test():
+    return jsonify({'message':'Welcome to Foodie Api'}), 200
+
+
 @auth.route('/signup', methods=['POST'])
 def signup():
     data = request.get_json()
