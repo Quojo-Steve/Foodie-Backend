@@ -21,7 +21,6 @@ PEXELS_API_KEY = "HkCVDhZhSeEIA3UCyGtVr4IPKtsamjfMYIZAivNiMVGv1o2iTqFCwSIt"
 G_API_KEY="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"
 # Initialize Groq client
 os.environ['GROQ_API_KEY'] = G_API_KEY
-client = Groq()
 
 # Alternative Method 2: If you need to pass the API key explicitly
 try:
