@@ -20,7 +20,20 @@ YOUTUBE_API_KEY = "AIzaSyAy6x8utPLPPyt_4thV9JKdv3OUHQGLPNI"
 PEXELS_API_KEY = "HkCVDhZhSeEIA3UCyGtVr4IPKtsamjfMYIZAivNiMVGv1o2iTqFCwSIt"
 G_API_KEY="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"
 # Initialize Groq client
-client = Groq(api_key=G_API_KEY)
+os.environ['GROQ_API_KEY'] = G_API_KEY
+client = Groq()
+
+# Alternative Method 2: If you need to pass the API key explicitly
+try:
+    client = Groq(api_key=G_API_KEY)
+except TypeError as e:
+    # Fallback for compatibility issues
+    print(f"Primary initialization failed: {e}")
+    print("Trying alternative initialization...")
+    
+    # Create client with minimal parameters
+    client = Groq()
+    client.api_key = G_API_KEY
 
 # Configuration from environment variables
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', '3f9b3cd3a4bc4f2181d62e9f4e6e1e96bff932a3ddce781c72c7be8d6e3bb654')
