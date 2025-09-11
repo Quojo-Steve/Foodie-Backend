@@ -478,6 +478,10 @@ def get_saved_recipes():
     except Exception as e:
         return jsonify({'error': 'Internal server error'}), 500
 
+@app.route('/', methods=['GET'])
+def health_check():
+    return jsonify({"message": "working"})
+
 @app.route('/api/remove-saved-recipe', methods=['DELETE'])
 def remove_saved_recipe():
     try:
